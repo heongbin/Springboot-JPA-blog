@@ -31,6 +31,18 @@ public class User {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private int id; //auto_increment 
 	
+	public User(String username, String password, String email) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+	
+	public User()
+	{
+		
+	}
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -71,7 +83,7 @@ public class User {
 	}
 
 
-	@Column(nullable = false,length = 30)
+	@Column(nullable = false,length = 30 ,unique = true)
 	private String username;//아이디
 	
 	@Column(nullable = false,length = 100)//->hash로

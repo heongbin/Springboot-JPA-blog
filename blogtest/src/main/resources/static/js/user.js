@@ -3,6 +3,9 @@ let index = {
 			$("#btn-save").on("click",()=>{
 				this.save();
 			});
+			/*$("#btn-login").on("click",()=>{
+				this.login();
+			});*/
 		},
 
 	save: function(){
@@ -17,18 +20,41 @@ let index = {
 		
 		$.ajax({
 			type: "POST",
-			url: "/blog/api/user",
+			url: "/auth/joinProc",
 			data: JSON.stringify(data), //http body데이터
 			contentType: "application/json; charset=utf-8",//body 데이터가 어떤타입인지.
 			dataType: "json"//서버로부터 응답이 왔을때 
 		}).done(function(resp){
 			alert("회원 가입 성공");	
 			alert(resp);
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); //ajax로 데이터를 json으로 insert요청
-	}
+	},
+	
+	/*login: function(){
+		let data = {
+				username: $("#username").val(),
+				password: $("#password").val()
+		}
+		
+		console.log(data);
+		
+		$.ajax({
+			type: "POST",
+			url: "/api/user/login",
+			data: JSON.stringify(data), //http body데이터
+			contentType: "application/json; charset=utf-8",//body 데이터가 어떤타입인지.
+			dataType: "json"//서버로부터 응답이 왔을때 
+		}).done(function(resp){
+			alert("로그인 성공");	
+			alert(resp);
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); //ajax로 데이터를 json으로 insert요청
+	}*/
 }
 
 index.init();

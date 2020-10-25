@@ -22,13 +22,13 @@ public class UserApiController {
 	@Autowired
 	private BCryptPasswordEncoder encode;
 	
-	@PostMapping("/auth/joinProc")
+	/*@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user)
 	{
 		System.out.println("save!");
 		userService.회원가입(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-	}
+	}*/
 	
 	/*@PostMapping("/api/user/login")
 	public ResponseDto<Integer> login(@RequestBody User user,HttpSession session){

@@ -1,7 +1,10 @@
 package com.blog.blogtest.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.blog.blogtest.config.auth.PrincipalDetail;
 
 @Controller
 public class UserController {
@@ -16,5 +19,9 @@ public class UserController {
 		return "user/loginForm";
 	}
 	
-	
+	@GetMapping("/user/updateForm")
+	public String updateForm(@AuthenticationPrincipal PrincipalDetail principal)
+	{
+		return "user/updateForm";
+	}
 }

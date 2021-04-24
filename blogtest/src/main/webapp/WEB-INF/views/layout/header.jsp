@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
  <title>Bootstrap Example</title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +19,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+ <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+ <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 </head>
 <body>
 
@@ -33,7 +34,7 @@
  		<c:when test="${empty principal}">
 		    <ul class="navbar-nav">
 		      <li class="nav-item">
-		        <a class="nav-link" href="/auth/loginForm">로그인</a>
+		        <a class="nav-link" href="/auth/loginForm"><sec:csrfInput/>로그인</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="/auth/joinForm">회원가입</a>

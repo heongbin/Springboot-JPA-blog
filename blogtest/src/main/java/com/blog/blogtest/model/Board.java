@@ -3,6 +3,7 @@ package com.blog.blogtest.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,11 +18,15 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OrderBy;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 
 
 
@@ -34,9 +39,6 @@ public class Board {
 	
 	@Column(nullable = false,length = 100)
 	private String title;
-	
-	@Lob
-	private String content;
 	
 	public int getId() {
 		return id;
@@ -78,12 +80,12 @@ public class Board {
 		this.user = user;
 	}
 
-	public List<Reply> getReply() {
-		return reply;
+	public List<Reply> getReplys() {
+		return replys;
 	}
 
-	public void setReply(List<Reply> reply) {
-		this.reply = reply;
+	public void setReplys(List<Reply> reply) {
+		this.replys = reply;
 	}
 
 	public Timestamp getCreateDate() {
@@ -93,16 +95,22 @@ public class Board {
 	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
-
+	
+	@Column(columnDefinition = "integer default 0")
 	private int count;
 	
 	@ManyToOne(fetch = FetchType.EAGER) //many = board -> user = one
 	@JoinColumn(name="userId")//db에서는 forignkey
 	private User user; 
 	
-	@OneToMany(mappedBy = "board",fetch=FetchType.EAGER)//mappedBy는 주인관계 표시. board가 주인이기때문에 reply가 board를 포린키로 갖음. reply클래스가 갖고잇는 아이디명.
-	private List<Reply> reply;//커럼에 추가는X. 1정규화떄문에
+	@OneToMany(mappedBy = "board",fetch=FetchType.EAGER,cascade = CascadeType.REMOVE)//mappedBy는 주인관계 표시. board가 주인이기때문에 reply가 board를 포린키로 갖음. reply클래스가 갖고잇는 아이디명.
+	@JsonIgnoreProperties({"board"})
+	@javax.persistence.OrderBy("id desc")
+	private List<Reply> replys;//커럼에 추가는X. 1정규화떄문에
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+
+	@Lob
+	private String content;
 }

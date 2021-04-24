@@ -12,7 +12,8 @@ let index = {
 		let data = {
 				username: $("#username").val(),
 				email: $("#email").val(),
-				password: $("#password").val()
+				password: $("#password").val(),
+				//hrsf: $("_crsf").val()
 				
 		}
 		
@@ -25,9 +26,13 @@ let index = {
 			contentType: "application/json; charset=utf-8",//body 데이터가 어떤타입인지.
 			dataType: "json"//서버로부터 응답이 왔을때 
 		}).done(function(resp){
-			alert("회원 가입 성공");	
-			alert(resp);
-			location.href="/";
+			if(resp.status===500){
+				alert("회원가입 성공")
+			}
+			else{
+				alert("fail");
+				location.href="/";
+			}
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); //ajax로 데이터를 json으로 insert요청
@@ -38,8 +43,8 @@ let index = {
 				id: $("#id").val(),
 				username: $("#username").val(),
 				email: $("#email").val(),
-				password: $("#password").val()
-				
+				password: $("#password").val(),
+				//hrsf: $("_crsf").val()
 		}
 		
 		console.log(data);
@@ -58,6 +63,8 @@ let index = {
 			alert(JSON.stringify(error));
 		}); //ajax로 데이터를 json으로 insert요청
 	}
+	
+	
 	
 	/*login: function(){
 		let data = {

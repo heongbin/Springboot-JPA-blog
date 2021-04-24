@@ -4,14 +4,17 @@
 
 <div class="container">
 <c:forEach var="board" items="${boards.content}">
-  <div class="card m-2">
-	  <div class="card-body">
-	    <h4 class="card-title">${board.title}</h4>
-	    <a href="/board/${board.id}" class="btn btn-primary">자세히 보기</a>
+  <div  class="card m-2">
+	  <div style="float:left" class="card-body">
+	    <div><h4><a style="color:black" class="card-title" href="/board/${board.id}">${board.title}</a></h4></div>
+	    
+	    <div><a style="color:black" class="card-title">${board.createDate}</a></div>
 	  </div>
+	  
 	</div>
 </c:forEach>
 </div>
+
 <ul class="pagination justify-content-center">
 <c:choose>
 	<c:when test="${boards.first}">

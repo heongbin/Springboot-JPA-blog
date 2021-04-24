@@ -18,6 +18,8 @@
 			<label for="password">Password</label> <input type="password"
 				class="form-control" placeholder="Enter password" id="password">
 		</div>
+		
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 	</form>
 	<button id="btn-save" class="btn btn-primary">회원가입</button>
 </div>

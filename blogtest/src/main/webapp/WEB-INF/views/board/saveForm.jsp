@@ -8,20 +8,19 @@
 			<input type="text" class="form-control" placeholder="Enter title" id="title">
 		</div>
 		
-		<div class="form-group">
-		  <textarea class="form-control summernote" rows="5" id="content"></textarea>
+		<div>
+		  <textarea rows="5" class="form-control" id="editor"></textarea>
 		</div>
 		
 		<button id="btn-save" class="btn btn-primary">±Û¾²±â</button>	
 	</form>
 </div>
 
- <script>
-      $('.summernote').summernote({
-        tabsize: 2,
-        height: 100
-      });
-  </script>
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+</script>
  <script src="/js/board.js"></script>
 <!--
 

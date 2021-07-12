@@ -17,7 +17,7 @@
 	
 모든 함수는 responsedto를 리턴해줌.
 	
-  ##responsedto
+ ## responsedto
 		```
 		*public class ResponseDto<T> {
 		int status;
@@ -41,14 +41,14 @@
 			}
 
 		```	
-		* status로 httpstatus의 성공 여부를 받음.
+ * status로 httpstatus의 성공 여부를 받음.
 	
   ## 3.2 UserApiController
-       *회원 가입,수정,탈퇴를 담당하는 controller.
+ * 회원 가입,수정,탈퇴를 담당하는 controller.
   ## 3.3 BoardController
-       *게시글과 댓글에 관련된 페이지를 이동해주는 controller
+ * 게시글과 댓글에 관련된 페이지를 이동해주는 controller
   ## 3.4 UserController
-       *회원가입,로그인에 관한 페이지를 이동해주는 controller
+ * 회원가입,로그인에 관한 페이지를 이동해주는 controller
 
 # 4. Model
   ## 4.1 Board
@@ -100,10 +100,10 @@
 	@javax.persistence.OrderBy("id desc")
 	private List<Reply> replys;
 	```
-*게시글 마다 id, 글제목 (title), 글내용(content), 조회수(count)
-*jpa를 @entitiy로 객체에 대응되는 테이블을 자동으로 생성.
-*게시글은 유저하나당 여러개를 가지고 있을수 있으므로, N:1관계인 JPA어노테이션 @Manytoone을 적용함.
-*lazy와 eager전략을 아직 차이를 잘 모르겠음.
+ * 게시글 마다 id, 글제목 (title), 글내용(content), 조회수(count)
+ * jpa를 @entitiy로 객체에 대응되는 테이블을 자동으로 생성.
+ * 게시글은 유저하나당 여러개를 가지고 있을수 있으므로, N:1관계인 JPA어노테이션 @Manytoone을 적용함.
+ * lazy와 eager전략을 아직 차이를 잘 모르겠음.
 
   ## 4.2 User
 	*
@@ -197,7 +197,7 @@
 	}
 	```
 	
-*유저 하나당 여러개의 게시글을 갖고있을 수 있으므로 
+ * 유저 하나당 여러개의 게시글을 갖고있을 수 있으므로 
 
   ## 4.3 reply
 	```

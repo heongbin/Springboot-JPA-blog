@@ -6,7 +6,11 @@
   * 스프링 시큐리티
   * JPA
   * maria db
+
 # 2.실행 방법.
+ * 이클립스에서 blogtestApplication 우클릭.
+ * run as -> java application (서버가 내장되어 있으므로)
+ * 실행 주소 : localhost:8000/blogtest/
 	
 
 # 3. Controller 단.

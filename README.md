@@ -6,18 +6,18 @@
   * 스프링 시큐리티
   * JPA
   * maria db
-# 실행 방법.
+# 2.실행 방법.
 	
 
-# 2. Controller 단.
-  ## 2.1 BoardApiController
-	* 게시글 등록을 위한 save함수.
-	* 게시글 수정을 위한 update함수.
-	* 게시글 delete를 위한 deletedbyid함수.
+# 3. Controller 단.
+  ## 3.1 BoardApiController
+* 게시글 등록을 위한 save함수.
+* 게시글 수정을 위한 update함수.
+* 게시글 delete를 위한 deletedbyid함수.
 	
-	모든 함수는 responsedto를 리턴해줌.
+모든 함수는 responsedto를 리턴해줌.
 	
-	##responsedto
+  ##responsedto
 		```
 		*public class ResponseDto<T> {
 		int status;
@@ -43,15 +43,15 @@
 		```	
 		* status로 httpstatus의 성공 여부를 받음.
 	
-  ## 2.2 UserApiController
-	*회원 가입,수정,탈퇴를 담당하는 controller.
-  ## 2.3 BoardController
-	*게시글과 댓글에 관련된 페이지를 이동해주는 controller
-  ## 2.4 UserController
-	*회원가입,로그인에 관한 페이지를 이동해주는 controller
+  ## 3.2 UserApiController
+       *회원 가입,수정,탈퇴를 담당하는 controller.
+  ## 3.3 BoardController
+       *게시글과 댓글에 관련된 페이지를 이동해주는 controller
+  ## 3.4 UserController
+       *회원가입,로그인에 관한 페이지를 이동해주는 controller
 
-# 3. Model
-  ## 3.1 Board
+# 4. Model
+  ## 4.1 Board
 	*@Entity//클래스가 mysql테이블이 자동생성.
 	```
 	public class Board {
@@ -100,12 +100,12 @@
 	@javax.persistence.OrderBy("id desc")
 	private List<Reply> replys;
 	```
-	*게시글 마다 id, 글제목 (title), 글내용(content), 조회수(count)
-	*jpa를 @entitiy로 객체에 대응되는 테이블을 자동으로 생성.
-	*게시글은 유저하나당 여러개를 가지고 있을수 있으므로, N:1관계인 JPA어노테이션 @Manytoone을 적용함.
-	*lazy와 eager전략을 아직 차이를 잘 모르겠음.
+*게시글 마다 id, 글제목 (title), 글내용(content), 조회수(count)
+*jpa를 @entitiy로 객체에 대응되는 테이블을 자동으로 생성.
+*게시글은 유저하나당 여러개를 가지고 있을수 있으므로, N:1관계인 JPA어노테이션 @Manytoone을 적용함.
+*lazy와 eager전략을 아직 차이를 잘 모르겠음.
 
-  ## 3.2 User
+  ## 4.2 User
 	*
 	```
 	@Entity//클래스가 mysql테이블이 자동생성.
@@ -197,9 +197,9 @@
 	}
 	```
 	
-	*유저 하나당 여러개의 게시글을 갖고있을 수 있으므로 
+*유저 하나당 여러개의 게시글을 갖고있을 수 있으므로 
 
-  ## 3.3 reply
+  ## 4.3 reply
 	```
 	*@Entity
 	public class Reply {
